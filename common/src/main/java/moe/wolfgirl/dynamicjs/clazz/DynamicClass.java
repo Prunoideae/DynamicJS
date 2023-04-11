@@ -83,7 +83,7 @@ public class DynamicClass<T> {
             var callbackMethod = callback.getSecond();
             JavaMembers.MethodInfo info = mappedToOriginals.get(name);
             if (info != null) {
-                builder = builder.method(ElementMatchers.named(info.name)).intercept(MethodDelegation.withDefaultConfiguration()
+                builder = builder.method(ElementMatchers.named(info.method.getName())).intercept(MethodDelegation.withDefaultConfiguration()
                                 .to(new CallDelegator<T>(callbackMethod, info.method.getReturnType(), manager.context)))
                         .topLevelType();
 

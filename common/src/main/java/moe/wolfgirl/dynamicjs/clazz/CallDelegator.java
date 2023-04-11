@@ -1,12 +1,9 @@
 package moe.wolfgirl.dynamicjs.clazz;
 
 import dev.latvian.mods.rhino.Context;
-import net.bytebuddy.implementation.bind.annotation.AllArguments;
-import net.bytebuddy.implementation.bind.annotation.RuntimeType;
-import net.bytebuddy.implementation.bind.annotation.Super;
-import net.bytebuddy.implementation.bind.annotation.This;
+import net.bytebuddy.dynamic.TargetType;
+import net.bytebuddy.implementation.bind.annotation.*;
 
-import java.util.Objects;
 import java.util.function.Function;
 
 public class CallDelegator<T> {
@@ -26,8 +23,8 @@ public class CallDelegator<T> {
     @SuppressWarnings("unchecked")
     public Object intercept(
             @RuntimeType @This Object self,
-            @RuntimeType @Super Object parent,
-            @RuntimeType @AllArguments Object[] args
+            @Super(strategy = Super.Instantiation.UNSAFE, proxyType = TargetType.class) Object parent,
+            @AllArguments Object[] args
     ) {
         return Context.jsToJava(context, callback.apply(new CallInfo<>((T) self, parent, args)), callbackType);
     }
@@ -40,20 +37,20 @@ public class CallDelegator<T> {
 
         public CallInfo(T self, Object parent, Object[] args) {
             this.self = self;
-            this.parent = parent;
             this.args = args;
+            this.parent = parent;
         }
 
         public T getSelf() {
             return self;
         }
 
-        public Object getParent() {
-            return parent;
-        }
-
         public Object[] getArgs() {
             return args;
+        }
+
+        public Object getParent() {
+            return parent;
         }
     }
 }
