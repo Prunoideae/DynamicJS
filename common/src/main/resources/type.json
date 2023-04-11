@@ -43,7 +43,7 @@
                             "name": "name",
                             "newType": {
                                 "type": "type:primitive",
-                                "name": "keyof T"
+                                "name": "keyof InstanceType<T>"
                             }
                         }
                     ],
@@ -109,18 +109,47 @@
                             "name": "moe.wolfgirl.dynamicjs.clazz.DynamicClass"
                         }
                     }
-                }
-            ]
-        },
-        {
-            "type": "document:class",
-            "className": "moe.wolfgirl.dynamicjs.clazz.DynamicClass$Wrapper",
-            "methods": [
+                },
                 {
                     "type": "document:method",
-                    "name": "wraps",
+                    "name": "impl",
                     "static": false,
                     "abstract": false,
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "name": "impl",
+                            "index": 1,
+                            "newType": {
+                                "type": "type:parameterized",
+                                "params": [
+                                    {
+                                        "type": "type:parameterized",
+                                        "params": [
+                                            {
+                                                "type": "type:variable",
+                                                "name": "Q",
+                                                "bounds": []
+                                            },
+                                            {
+                                                "type": "type:primitive",
+                                                "name": "InstanceType<T>",
+                                                "bounds": []
+                                            }
+                                        ],
+                                        "base": {
+                                            "type": "type:class",
+                                            "name": "moe.wolfgirl.dynamicjs.clazz.InterfaceImplementation"
+                                        }
+                                    }
+                                ],
+                                "base": {
+                                    "type": "type:class",
+                                    "name": "java.util.function.Consumer"
+                                }
+                            }
+                        }
+                    ],
                     "params": [
                         {
                             "type": "property:param",
@@ -130,7 +159,7 @@
                                 "params": [
                                     {
                                         "type": "type:variable",
-                                        "name": "T",
+                                        "name": "Q",
                                         "bounds": []
                                     }
                                 ],
@@ -140,12 +169,45 @@
                                 }
                             },
                             "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "impl",
+                            "paramType": {
+                                "type": "type:parameterized",
+                                "params": [
+                                    {
+                                        "type": "type:parameterized",
+                                        "params": [
+                                            {
+                                                "type": "type:variable",
+                                                "name": "Q",
+                                                "bounds": []
+                                            },
+                                            {
+                                                "type": "type:variable",
+                                                "name": "T",
+                                                "bounds": []
+                                            }
+                                        ],
+                                        "base": {
+                                            "type": "type:class",
+                                            "name": "moe.wolfgirl.dynamicjs.clazz.InterfaceImplementation"
+                                        }
+                                    }
+                                ],
+                                "base": {
+                                    "type": "type:class",
+                                    "name": "java.util.function.Consumer"
+                                }
+                            },
+                            "varArg": false
                         }
                     ],
                     "variables": [
                         {
                             "type": "type:variable",
-                            "name": "T",
+                            "name": "Q",
                             "bounds": []
                         }
                     ],
@@ -162,35 +224,7 @@
                             "type": "type:class",
                             "name": "moe.wolfgirl.dynamicjs.clazz.DynamicClass"
                         }
-                    },
-                    "properties": [
-                        {
-                            "type": "property:returns",
-                            "returns": {
-                                "type": "type:parameterized",
-                                "params": [
-                                    {
-                                        "type": "type:parameterized",
-                                        "base": {
-                                            "type": "type:primitive",
-                                            "name": "InstanceType"
-                                        },
-                                        "params": [
-                                            {
-                                                "type": "type:variable",
-                                                "name": "T",
-                                                "bounds": []
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "base": {
-                                    "type": "type:class",
-                                    "name": "moe.wolfgirl.dynamicjs.clazz.DynamicClass"
-                                }
-                            }
-                        }
-                    ]
+                    }
                 }
             ]
         },
