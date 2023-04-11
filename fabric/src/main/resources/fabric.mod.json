@@ -1,0 +1,27 @@
+{
+    "schemaVersion": 1,
+    "id": "dynamicjs",
+    "version": "${version}",
+    "name": "DynamicJS",
+    "description": "Doing subclassing dynamically via bytecode hacks",
+    "authors": [
+        "Prunoideae"
+    ],
+    "contact": {},
+    "license": "LGPLv3",
+    "icon": "icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "moe.wolfgirl.dynamicjs.fabric.DynamicJSFabric"
+        ]
+    },
+    "mixins": [
+        "dynamicjs.mixins.json",
+        "dynamicjs-common.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14.19",
+        "minecraft": ">=1.19.2"
+    }
+}

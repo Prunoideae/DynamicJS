@@ -1,0 +1,41 @@
+{
+    "classes": [
+        {
+            "type": "document:class",
+            "className": "moe.wolfgirl.dynamicjs.clazz.DynamicClass",
+            "methods": [
+                {
+                    "type": "document:method",
+                    "name": "build",
+                    "static": false,
+                    "abstract": false,
+                    "params": [],
+                    "variables": [],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "java.lang.Object"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:returns",
+                            "returns": {
+                                "type": "type:parameterized",
+                                "base": {
+                                    "type": "type:class",
+                                    "name": "java.lang.Class"
+                                },
+                                "params": [
+                                    {
+                                        "type": "type:variable",
+                                        "name": "T",
+                                        "bounds": []
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
