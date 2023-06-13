@@ -24,6 +24,7 @@ dependencies {
 	modImplementation "dev.latvian.mods:rhino:${rootProject.rhino_version}"
 
 	include "net.bytebuddy:byte-buddy:1.14.2"
+	include "net.bytebuddy:byte-buddy-agent:1.14.4"
 
 	common(project(path: ":common", configuration: "namedElements")) { transitive false }
 	shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

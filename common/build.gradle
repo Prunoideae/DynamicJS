@@ -6,6 +6,7 @@ dependencies {
 	modImplementation "dev.latvian.mods:rhino:${rootProject.rhino_version}"
 
 	compileOnly 'net.bytebuddy:byte-buddy:1.14.2'
+	compileOnly 'net.bytebuddy:byte-buddy-agent:1.14.4'
 }
 
 architectury {
